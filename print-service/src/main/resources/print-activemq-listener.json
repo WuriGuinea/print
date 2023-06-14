@@ -1,0 +1,12 @@
+{
+    "printMQ": [{
+        "name": "PRINT LISTENER",
+        "brokerUrl": "tcp://activemq-activemq-artemis.activemq:61616",
+        "inboundQueueName": "printlistener-to-print",
+        "outboundQueueName": "print-to-printlistener",
+        "userName": "artemis",
+        "password": "MkqCuWUOfB",
+        "typeOfQueue": "ACTIVEMQ",
+        "inboundMessageTTL": 2700
+    }]
+}
