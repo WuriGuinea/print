@@ -713,7 +713,7 @@ public class PrintServiceImpl implements PrintService {
         DataShare dataShare = null;
         dataShare = dataShareUtil.getDataShare(data, policyId, partnerId);
         String dataShareUrl = dataShare.getUrl();
-        dataShareUrl = dataShareUrl.replace("http://", "https://");
+        //dataShareUrl = dataShareUrl.replace("http://", "https://");
 
         // Sending DataShare URL to ActiveMQ
         PrintMQData response = new PrintMQData("mosip.print.pdf.data", (registrationId == null ? uin : registrationId), printRefId, dataShareUrl);
