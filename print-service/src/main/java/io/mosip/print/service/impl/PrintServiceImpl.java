@@ -17,6 +17,7 @@ import io.mosip.print.model.StatusEvent;
 import io.mosip.print.repository.PrintTransactionRepository;
 import io.mosip.print.service.PrintService;
 import io.mosip.print.service.UinCardGenerator;
+import io.mosip.print.spi.BucketWriter;
 import io.mosip.print.spi.CbeffUtil;
 import io.mosip.print.spi.QrCodeGenerator;
 import io.mosip.print.util.*;
@@ -100,6 +101,9 @@ public class PrintServiceImpl implements PrintService {
 
     @Autowired
     CryptoUtil cryptoUtil;
+    
+    @Autowired
+    BucketWriter bucketWriter;
     /**
      * The print logger.
      */
@@ -167,6 +171,8 @@ public class PrintServiceImpl implements PrintService {
     private String clientId;
     @Value("${mosip.send.uin.email.attachment.enabled:false}")
     private Boolean emailUINEnabled;
+    @Value("${mosip.store.uin.in.bucket.enabled:true}")
+   private boolean storeInBucketEnabled;
     @Value("${mosip.print.service.uincard.pdf.password.enable:false}")
     private boolean isPasswordProtected;
     @Value("${mosip.print.service.uincard.password}")
@@ -313,6 +319,12 @@ public class PrintServiceImpl implements PrintService {
             if (emailUINEnabled) {
                 sendUINInEmail(residentEmailId, registrationId, attributes, pdfbytes);
             }
+            
+        
+			//Send UIN card in Minio Server
+            if (storeInBucketEnabled)
+               storeInMinioBucket ( registrationId, pdfbytes);
+            
             printStatusUpdate(requestId, pdfbytes, credentialType, uin, refId, registrationId);
             isTransactionSuccessful = true;
         } catch (QrcodeGenerationException e) {
@@ -391,7 +403,17 @@ public class PrintServiceImpl implements PrintService {
         return byteMap;
     }
 
-    private String getRid(Object id) {
+    private void storeInMinioBucket(String registrationId, byte[] pdfbytes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void storeInMinioBucket(String registrationId, Map<String, Object> attributes, byte[] pdfbytes) {
+		
+		
+	}
+
+	private String getRid(Object id) {
         return id.toString().split("/credentials/")[1];
     }
 
