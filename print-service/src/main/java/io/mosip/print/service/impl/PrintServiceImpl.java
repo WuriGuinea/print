@@ -320,8 +320,7 @@ public class PrintServiceImpl implements PrintService {
                 sendUINInEmail(residentEmailId, registrationId, attributes, pdfbytes);
             }
             
-        
-			//Send UIN card in Minio Server
+        	//Send UIN card in Minio Server
             if (storeInBucketEnabled)
                storeInMinioBucket ( registrationId, pdfbytes);
             
