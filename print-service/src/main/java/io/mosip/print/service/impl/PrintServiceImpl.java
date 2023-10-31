@@ -41,7 +41,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import java.io.*;
@@ -185,7 +184,7 @@ public class PrintServiceImpl implements PrintService {
     private PrintMQListener activePrintMQListener;
     @Autowired
     private NotificationUtil notificationUtil;
-
+    
     public boolean generateCard(EventModel eventModel) {
         String credential = null;
         boolean isPrinted = false;
@@ -320,8 +319,7 @@ public class PrintServiceImpl implements PrintService {
                 sendUINInEmail(residentEmailId, registrationId, attributes, pdfbytes);
             }
             
-        
-			//Send UIN card in Minio Server
+        	//Send UIN card in Minio Server
             if (storeInBucketEnabled)
                storeInMinioBucket ( registrationId, pdfbytes);
             
@@ -404,14 +402,11 @@ public class PrintServiceImpl implements PrintService {
     }
 
     private void storeInMinioBucket(String registrationId, byte[] pdfbytes) {
-		// TODO Auto-generated method stub
-		
+		 
+    	bucketWriter.writeInBucket(registrationId,pdfbytes);		
 	}
 
-	private void storeInMinioBucket(String registrationId, Map<String, Object> attributes, byte[] pdfbytes) {
-		
-		
-	}
+	 
 
 	private String getRid(Object id) {
         return id.toString().split("/credentials/")[1];
