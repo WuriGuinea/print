@@ -321,7 +321,8 @@ public class PrintServiceImpl implements PrintService {
             
         	//Send UIN card in Minio Server
             if (storeInBucketEnabled)
-               storeInMinioBucket ( registrationId, pdfbytes);
+            	printLogger.info("Status of store in bucket - " + storeInBucketEnabled);
+		    //  storeInMinioBucket ( registrationId, pdfbytes);
             
             printStatusUpdate(requestId, pdfbytes, credentialType, uin, refId, registrationId);
             isTransactionSuccessful = true;
