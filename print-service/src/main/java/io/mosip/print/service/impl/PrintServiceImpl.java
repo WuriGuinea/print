@@ -17,7 +17,6 @@ import io.mosip.print.model.StatusEvent;
 import io.mosip.print.repository.PrintTransactionRepository;
 import io.mosip.print.service.PrintService;
 import io.mosip.print.service.UinCardGenerator;
-import io.mosip.print.spi.BucketWriter;
 import io.mosip.print.spi.CbeffUtil;
 import io.mosip.print.spi.QrCodeGenerator;
 import io.mosip.print.util.*;
@@ -101,8 +100,8 @@ public class PrintServiceImpl implements PrintService {
     @Autowired
     CryptoUtil cryptoUtil;
     
-    @Autowired
-    BucketWriter bucketWriter;
+ //   @Autowired
+   // BucketWriter bucketWriter;
     /**
      * The print logger.
      */
