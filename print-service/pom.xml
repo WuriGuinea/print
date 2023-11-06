@@ -267,12 +267,12 @@
         <groupId>io.minio</groupId>
         <artifactId>minio</artifactId>
         <version>8.3.5</version>
-        <exclusions>
+   <!--      <exclusions>
             <exclusion>
                 <artifactId>okhttp</artifactId>
                 <groupId>com.squareup.okhttp3</groupId>
             </exclusion>
-        </exclusions>
+        </exclusions> -->
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
     <dependency>
