@@ -6,15 +6,10 @@ import java.nio.file.Files;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import io.minio.BucketExistsArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
 import io.minio.UploadObjectArgs;
-//import io.minio.BucketExistsArgs;
-//import io.minio.MakeBucketArgs;
-//import io.minio.MinioClient;
-//import io.minio.UploadObjectArgs;
 import io.mosip.print.logger.PrintLogger;
 import io.mosip.print.spi.BucketWriter;
 import java.security.InvalidKeyException;
@@ -32,18 +27,18 @@ import java.util.TimeZone;
 @Component
 public class MinioBucketWriter implements BucketWriter {
 	static Logger printLogger = PrintLogger.getLogger(MinioBucketWriter.class);
-	@Value("${minio.api.url}")
-	private   String minioApiURl;
-	@Value("${minio.port.number}")
-	private   int portNumber;
-	@Value("${minio.url.ssl.secured}")
-	private static boolean sslSecured;
-	@Value("${minio.client.id}")
-	private   String minioClientId;
-	@Value("${minio.secret.key}")
-	private   String minioSecretKey;
-	@Value("${minio.bucket.name}")
-	private   String bucketName;
+	//@Value("${minio.api.urlcould}}")
+	private   String minioApiURl="https://minio.gin-pilot.mosip.net";
+	//@Value("${minio.port.number}")
+	private   int portNumber=9000;
+	//@Value("${minio.url.ssl.secured}")
+	private  boolean sslSecured=false;
+	//@Value("${minio.client.id}")
+	private   String minioClientId="techteam";
+//	@Value("${minio.secret.key}")
+	private   String minioSecretKey="Wuri@2020";
+	//@Value("${minio.bucket.name}")
+	private   String bucketName="uins";
 
 	/**
 	 * 
