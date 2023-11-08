@@ -33,17 +33,17 @@ import java.util.TimeZone;
 public class MinioBucketWriter implements BucketWriter {
 	static Logger printLogger = PrintLogger.getLogger(MinioBucketWriter.class);
 	@Value("${minio.api.url}")
-	private static String minioApiURl;
+	private   String minioApiURl;
 	@Value("${minio.port.number}")
-	private static int portNumber;
+	private   int portNumber;
 	@Value("${minio.url.ssl.secured}")
 	private static boolean sslSecured;
 	@Value("${minio.client.id}")
-	private static String minioClientId;
+	private   String minioClientId;
 	@Value("${minio.secret.key}")
-	private static String minioSecretKey;
+	private   String minioSecretKey;
 	@Value("${minio.bucket.name}")
-	private static String bucketName;
+	private   String bucketName;
 
 	/**
 	 * 
