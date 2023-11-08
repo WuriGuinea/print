@@ -27,18 +27,18 @@ import java.util.TimeZone;
 @Component
 public class MinioBucketWriter implements BucketWriter {
 	static Logger printLogger = PrintLogger.getLogger(MinioBucketWriter.class);
-	//@Value("${minio.api.urlcould}}")
-	private   String minioApiURl="https://minio.gin-pilot.mosip.net";
-	//@Value("${minio.port.number}")
-	private   int portNumber=9000;
-	//@Value("${minio.url.ssl.secured}")
-	private  boolean sslSecured=false;
+	@Value("${minio.api.url}}")
+	private   String minioApiURl; //s="https://minio.gin-pilot.mosip.net";
+	@Value("${minio.port.number}")
+	private   int portNumber;//=9000;
+	@Value("${minio.url.ssl.secured}")
+	private  boolean sslSecured;//=false;
 	//@Value("${minio.client.id}")
 	private   String minioClientId="techteam";
-//	@Value("${minio.secret.key}")
-	private   String minioSecretKey="Wuri@2020";
-	//@Value("${minio.bucket.name}")
-	private   String bucketName="uins";
+	@Value("${minio.secret.key}")
+	private   String minioSecretKey;//="Wuri@2020";
+	@Value("${minio.bucket.name}")
+	private   String bucketName;//="uins";
 
 	/**
 	 * 
