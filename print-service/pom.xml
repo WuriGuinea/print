@@ -295,7 +295,11 @@
     
     
 -->
- 
+     <dependency>
+        <groupId>io.minio</groupId>
+        <artifactId>minio</artifactId>
+        <version>8.3.5</version>
+    </dependency> 
     
 	</dependencies>
 	

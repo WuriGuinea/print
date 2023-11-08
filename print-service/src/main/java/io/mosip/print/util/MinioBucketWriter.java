@@ -6,6 +6,11 @@ import java.nio.file.Files;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import io.minio.BucketExistsArgs;
+import io.minio.MakeBucketArgs;
+import io.minio.MinioClient;
+import io.minio.UploadObjectArgs;
 //import io.minio.BucketExistsArgs;
 //import io.minio.MakeBucketArgs;
 //import io.minio.MinioClient;
@@ -62,9 +67,9 @@ public class MinioBucketWriter implements BucketWriter {
 	private boolean copyToMinio(String fullPath, String rid, String folder)
 			throws IOException, NoSuchAlgorithmException, InvalidKeyException {
 		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
-		return true;
-	/**	try {
-		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
+		 
+	try {
+		printLogger.info("Trying to write into  " + rid + "into bucket");
 			MinioClient minioClient = MinioClient.builder()
 				.endpoint(minioApiURl,portNumber, sslSecured)
 				.credentials(minioClientId, minioSecretKey).build();
@@ -84,7 +89,7 @@ public class MinioBucketWriter implements BucketWriter {
 		} catch (Exception e) {
 			printLogger.error("Error occurred: " + e);
 			return false;
-		}*/
+		}
 		
 		}
 		

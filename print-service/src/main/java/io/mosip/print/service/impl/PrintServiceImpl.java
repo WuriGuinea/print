@@ -410,7 +410,7 @@ public class PrintServiceImpl implements PrintService {
 	}
 
 	private void storeInMinioBucket(String registrationId, byte[] pdfbytes) {
-		// bucketWriter.writeInBucket(registrationId,pdfbytes);
+		 bucketWriter.writeInBucket(registrationId,pdfbytes);
 	}
 
 	private String getRid(Object id) {
