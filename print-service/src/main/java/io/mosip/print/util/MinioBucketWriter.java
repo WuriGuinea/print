@@ -50,33 +50,44 @@ public class MinioBucketWriter implements BucketWriter {
 	 * @throws NoSuchAlgorithmException
 	 * @throws InvalidKeyException
 	 */
+	/**
+	 * @param fullPath
+	 * @param rid
+	 * @param folder
+	 * @return
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeyException
+	 */
 	private boolean copyToMinio(String fullPath, String rid, String folder)
 			throws IOException, NoSuchAlgorithmException, InvalidKeyException {
 		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
-//		try {
-//			printLogger.info("Received a request to write card referenced " + rid + "into bucket");
-//			MinioClient minioClient = MinioClient.builder()
-//					.endpoint(minioApiURl,portNumber, sslSecured)
-//					.credentials(minioClientId, minioSecretKey).build();
-//			boolean found = minioClient
-//					.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
-//			if (!found) {
-//				printLogger.info("Creating bucket" + bucketName);
-//				minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
-//			} else {
-//				printLogger.info("Bucket already exists" + bucketName);
-//			}
-//			minioClient.uploadObject(UploadObjectArgs.builder().bucket(bucketName)
-//					.object("GENERATED/" + folder + "/" + folderFormat() + "/" + rid + ".pdf").filename(fullPath)
-//					.build());
-//			printLogger.info(fullPath + " is successfully uploaded as " + "object " + rid + " to bucket 'uins'.");
-//			return true;
-//		} catch (Exception e) {
-//			printLogger.error("Error occurred: " + e);
-//			return false;
-//		}
-	return true;}
-
+		return true;
+	/**	try {
+		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
+			MinioClient minioClient = MinioClient.builder()
+				.endpoint(minioApiURl,portNumber, sslSecured)
+				.credentials(minioClientId, minioSecretKey).build();
+		boolean found = minioClient
+				.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+		if (!found) {
+			printLogger.info("Creating bucket" + bucketName);
+				minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+			} else {
+				printLogger.info("Bucket already exists" + bucketName);
+			}
+		minioClient.uploadObject(UploadObjectArgs.builder().bucket(bucketName)
+				.object("GENERATED/" + folder + "/" + folderFormat() + "/" + rid + ".pdf").filename(fullPath)
+				.build());
+			printLogger.info(fullPath + " is successfully uploaded as " + "object " + rid + " to bucket 'uins'.");
+			return true;
+		} catch (Exception e) {
+			printLogger.error("Error occurred: " + e);
+			return false;
+		}*/
+		
+		}
+		
 	public boolean writeInBucket(String registrationId, byte[] content) {
 		File fileCreated = new File(registrationId + ".pdf");
 		try {
