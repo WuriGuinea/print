@@ -28,7 +28,7 @@ import java.util.TimeZone;
 public class MinioBucketWriter implements BucketWriter {
 	static Logger printLogger = PrintLogger.getLogger(MinioBucketWriter.class);
 	@Value("${minio.api.url}}")
-	private   String minioApiURl=;
+	private   String minioApiURl;
  	@Value("${minio.port.number}")
 	private   int portNumber;
 	@Value("${minio.url.ssl.secured}")
