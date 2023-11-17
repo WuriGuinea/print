@@ -1,5 +1,7 @@
 package io.mosip.print.util;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -82,9 +84,13 @@ public class MinioBucketWriter implements BucketWriter {
 			printLogger.info(fullPath + " is successfully uploaded as " + "object " + rid + " to bucket 'uins'.");
 			return true;
 		} catch (Exception e) {
-			printLogger.error("Error occurred: " + e.getStackTrace());
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			String trace = sw.toString();
+			printLogger.error("Error occurred: " + trace);
 			return false;
-		}
+	}
 		
 		}
 		
