@@ -82,7 +82,7 @@ public class MinioBucketWriter implements BucketWriter {
 			printLogger.info(fullPath + " is successfully uploaded as " + "object " + rid + " to bucket 'uins'.");
 			return true;
 		} catch (Exception e) {
-			printLogger.error("Error occurred: " + e);
+			printLogger.error("Error occurred: " + e.getStackTrace());
 			return false;
 		}
 		
