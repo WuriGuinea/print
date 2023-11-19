@@ -262,11 +262,53 @@
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.version}</version>
 		</dependency>
-
-     <dependency>
+		
+		 <!-- 	-->
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp 
+    <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>4.9.3</version>
+    </dependency>
+    
+    
+    <dependency>
         <groupId>io.minio</groupId>
         <artifactId>minio</artifactId>
         <version>8.3.5</version>
+       <exclusions>
+            <exclusion>
+                <artifactId>okhttp</artifactId>
+                <groupId>com.squareup.okhttp3</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency> 
+
+<dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>4.9.3</version>
+    </dependency>
+    
+    
+    
+    
+    
+-->
+     <dependency>
+        <groupId>io.minio</groupId>
+        <artifactId>minio</artifactId>
+        <version>8.5.7</version>
+   
+     			<exclusions>
+				<exclusion>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>kotlin-stdlib</artifactId>
+				</exclusion>
+			</exclusions>
+
+     
+     
      </dependency> 
     <dependency>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -557,3 +599,24 @@
 		</profile>
 	</profiles>
 </project>
+		
+		 <!-- 	-->
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp 
+    <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>4.9.3</version>
+    </dependency>
+    
+    
+    <dependency>
+        <groupId>io.minio</groupId>
+        <artifactId>minio</artifactId>
+        <version>8.3.5</version>
+       <exclusions>
+            <exclusion>
+                <artifactId>okhttp</artifactId>
+                <groupId>com.squareup.okhttp3</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency> 

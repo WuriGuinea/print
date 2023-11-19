@@ -1,5 +1,7 @@
 package io.mosip.print.util;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,17 +30,17 @@ import java.util.TimeZone;
 public class MinioBucketWriter implements BucketWriter {
 	static Logger printLogger = PrintLogger.getLogger(MinioBucketWriter.class);
 	@Value("${minio.api.url}}")
-	private   String minioApiURl; //s="https://minio.gin-pilot.mosip.net";
-	@Value("${minio.port.number}")
-	private   int portNumber;//=9000;
+	private   String minioApiURl;
+ 	@Value("${minio.port.number}")
+	private   int portNumber;
 	@Value("${minio.url.ssl.secured}")
-	private  boolean sslSecured;//=false;
-	//@Value("${minio.client.id}")
-	private   String minioClientId="techteam";
+	private  boolean sslSecured;
+	@Value("${minio.client.id}")
+	private   String minioClientId;
 	@Value("${minio.secret.key}")
-	private   String minioSecretKey;//="Wuri@2020";
+	private   String minioSecretKey;
 	@Value("${minio.bucket.name}")
-	private   String bucketName;//="uins";
+	private   String bucketName;
 
 	/**
 	 * 
@@ -82,9 +84,13 @@ public class MinioBucketWriter implements BucketWriter {
 			printLogger.info(fullPath + " is successfully uploaded as " + "object " + rid + " to bucket 'uins'.");
 			return true;
 		} catch (Exception e) {
-			printLogger.error("Error occurred: " + e);
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			String trace = sw.toString();
+			printLogger.error("Error occurred: " + trace);
 			return false;
-		}
+	}
 		
 		}
 		
