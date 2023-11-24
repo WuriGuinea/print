@@ -66,7 +66,7 @@ public class MinioBucketWriter implements BucketWriter {
 		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
 		 
 	try {
-		printLogger.info("Trying to write into  " + rid + "into bucket");
+		printLogger.info("Trying to write into  " + rid + "into bucket for url "+minioApiURl);
 			MinioClient minioClient = MinioClient.builder()
 				.endpoint(minioApiURl,portNumber, sslSecured)
 				.credentials(minioClientId, minioSecretKey).build();
