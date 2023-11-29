@@ -306,6 +306,10 @@
 					<groupId>org.jetbrains.kotlin</groupId>
 					<artifactId>kotlin-stdlib</artifactId>
 				</exclusion>
+				  <exclusion>
+                <artifactId>okhttp</artifactId>
+                <groupId>com.squareup.okhttp3</groupId>
+            </exclusion>
 			</exclusions>
 
      
@@ -323,6 +327,12 @@
             <artifactId>khazana</artifactId>
             <version>${khazana.version}</version>
         </dependency>
+<dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>4.9.3</version>
+    </dependency>
+		
 	</dependencies>
 	
     <repositories>

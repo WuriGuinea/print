@@ -68,13 +68,15 @@ public class MinioBucketWriter implements BucketWriter {
 			throws IOException, NoSuchAlgorithmException, InvalidKeyException {
 		printLogger.info("Received a request to write card referenced " + rid + "into bucket");
 
-		try {
-			printLogger.info("Trying to write into  " + rid + "into bucket");
-			MinioClient minioClient = MinioClient.builder().endpoint(minioApiURl, portNumber, sslSecured)
-					.credentials(minioClientId, minioSecretKey).build();
-			boolean found = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
-			if (!found) {
-				printLogger.info("Creating bucket" + bucketName);
+	try {
+		printLogger.info("Trying to write into  " + rid + "into bucket for url "+minioApiURl);
+			MinioClient minioClient = MinioClient.builder()
+				.endpoint(minioApiURl,portNumber, sslSecured)
+				.credentials(minioClientId, minioSecretKey).build();
+		boolean found = minioClient
+				.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+		if (!found) {
+			printLogger.info("Creating bucket" + bucketName);
 				minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
 			} else {
 				printLogger.info("Bucket already exists" + bucketName);
@@ -131,7 +133,6 @@ public class MinioBucketWriter implements BucketWriter {
 		boolean response = false;
 		String fileName = "GENERATED/" + folderFormat() + "/" + rid + ".pdf";
 		printLogger.info("Received a request to write card referenced " + "" + "into bucket");
-
 		try {
 			response = s3Adapter.putObject(account, bucketName, source, process, fileName, data);
 		} catch (Exception e) {
